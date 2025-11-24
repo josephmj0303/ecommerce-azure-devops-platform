@@ -1,96 +1,93 @@
-Angular SSR Deployment on Alma Linux 9 with PM2 & Nginx
+# MarketPro SSR Angular Deployment
 
-Project: MarketPro (SSR Angular)
-Server Path: /var/www/ecommerce-staging
-Node Version: v20.19.5
-Nginx Version: 1.20.1
+This document provides step-by-step instructions for deploying the **MarketPro SSR Angular** project on Alma Linux 9 using **Node.js**, **PM2**, and **Nginx**.
 
-1. Clone the Repository
+---
+
+## Project Details
+
+- **Project:** MarketPro (SSR Angular)  
+- **Server Path:** `/var/www/ecommerce-staging`  
+- **Node Version:** v20.19.5  
+- **Nginx Version:** 1.20.1  
+
+---
+
+## 1. Clone the Repository
+
+```bash
 cd /var/www
 git clone <repository-url> ecommerce-staging
 cd ecommerce-staging
-
-
-The repo structure contains:
-
+```
+Repository Structure:
+```bash
 frontend/       → Angular project (browser build, package.json)
 frontend-ssr/   → SSR server files (server.mjs, prerendered-routes.json)
 public/
 README.md
+```
 
 2. Install Node Modules
 
-Navigate to the frontend folder (contains package.json):
-
+```bash
 cd frontend
 npm install
-
-
-This installs all dependencies for Angular build.
+```
+Installs all dependencies required for Angular build.
 
 3. Build the Angular Application
 
-For SSR, the original developer did not provide build:ssr scripts, so we only build the browser bundle:
-
-npm run build  # creates dist/marketpro/browser
-
-
-Confirm the build output:
-
+```bash
+npm run build  # Creates dist/marketpro/browser
+```
+Verify build output:
+```bash
 cd dist/marketpro/browser
 ls -l
-
-
-You should see:
-
+```
+Expected contents:
+```bash
 assets/ → images, icons, CSS
-
 media/ → product images, banners
-
 JS/CSS bundles (main.js, styles.css, etc.)
-
 index.html
+```
 
 4. Start SSR Server Directly (Optional Test)
-
-Navigate to frontend-ssr:
-
+```bash
 cd ../../frontend-ssr
 node server/server.mjs
-
-
-Test that SSR is running on http://localhost:4000.
-
-If it works, proceed to PM2 setup.
+```
+Test SSR server: http://localhost:4000
+If working, proceed to PM2 setup.
 
 5. Start SSR Server with PM2
 
-Install PM2 globally (if not already installed):
-
+Install PM2 globally:
+```bash
 npm install -g pm2
-
-
+```
 Start the SSR server:
-
+```bash
 cd /var/www/ecommerce-staging/frontend-ssr
 pm2 start server/server.mjs --name marketpro-ssr
-
-
-Check status:
-
+```
+Check status and logs:
+```bash
 pm2 status
 pm2 logs marketpro-ssr --lines 50
-
-
-After a server reboot, reload PM2 processes automatically:
-
+```
+Enable PM2 to start on reboot:
+```bash
 pm2 startup
 pm2 save
+```
 
-6. Configure Nginx to Proxy to SSR & Serve Static Assets
+6. Configure Nginx to Proxy SSR & Serve Static Assets
 
-Edit/create /etc/nginx/conf.d/jaysltd.conf:
-
+Create or edit /etc/nginx/conf.d/jaysltd.conf:
+```bash
 server {
     listen 443 ssl;
     server_name jaysltd.mtgapps.in;
@@ -127,90 +124,78 @@ server {
     server_name jaysltd.mtgapps.in;
     return 301 https://$host$request_uri;
 }
-
-
+```
 Test and reload Nginx:
-
+```bash
 nginx -t
 systemctl reload nginx
+```
+Verify in browser: https://jaysltd.mtgapps.in
 
-
-Verify the site in browser:
-
-SSR rendering should work.
-
-Static assets (images, CSS, JS) should load.
+Check static assets:
+```bash
+https://jaysltd.mtgapps.in/assets/images/logo/logo1.png
+https://jaysltd.mtgapps.in/media/images/banner1.jpg
+```
 
 7. Debugging & Observations
 
 502 Bad Gateway after reboot:
-
-Caused because PM2 was not running SSR after reboot. Fixed with:
-
+Fixed by enabling PM2 startup:
+```bash
 pm2 startup
 pm2 save
-
-
+```
 Images not showing:
+Fixed by configuring alias in Nginx for /assets/ and /media/.
 
-Initially missing due to Nginx root misconfiguration.
-
-Fixed using alias to correctly serve /assets/ and /media/.
-
-Image placeholders (size boxes):
-
-Some images were intentionally not provided by the developer.
-
-This is a content issue, not a server issue.
+Placeholder images:
+Some images intentionally missing by developer; not a server issue.
 
 8. Verify SSR & Assets
-
-SSR server running:
-
+```bash
 pm2 status
 ss -tulpn | grep 4000
+```
+Nginx proxies SSR correctly.
 
-
-Nginx proxy working: Open https://jaysltd.mtgapps.in
-
-Static assets:
-
-https://jaysltd.mtgapps.in/assets/images/logo/logo1.png
-https://jaysltd.mtgapps.in/media/images/banner1.jpg
+Static assets served via Nginx.
 
 9. Maintaining Deployment
 
 Pull updates:
-
+```bash
 cd /var/www/ecommerce-staging/frontend
 git pull
 npm install
 npm run build
-
-
+```
 Restart SSR server:
-
+```bash
 cd ../frontend-ssr
 pm2 restart marketpro-ssr --update-env
-
-
-Reload Nginx if config changes:
-
+```
+Reload Nginx if config changed:
+```bash
 nginx -t
 systemctl reload nginx
-
-
-Ensure PM2 auto-start after reboot:
-
+```
+Ensure PM2 auto-start is saved:
+```bash
 pm2 save
+```
 
 
-✅ Outcome:
+✅ Outcome
 
 SSR Angular app runs on Node (PM2)
 
 Nginx proxies traffic and serves static assets
 
-HTTPS works with LetsEncrypt
+HTTPS works with Let’s Encrypt
 
 Site survives reboots without manual intervention
+
+
+
+
