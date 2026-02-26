@@ -48,9 +48,13 @@ This project demonstrates the migration of a production eCommerce application fr
 
 ---
 
-### 🏗 Architecture
+### 🏗 Final Production Architecture
 
-![Architecture](architecture/ecommerce-azure-architecture.png)
+![Architecture](architecture/03-ecommerce-azure-architecture.png)
+
+### ☁ Migration Overview
+
+![Migration](architecture/01-migration-overview.png)
 
 ---
 
@@ -110,7 +114,9 @@ GitHub Actions handles deployments.
 ecommerce-azure-devops-platform/
 │
 ├── architecture/
-│   └── ecommerce-azure-architecture.png
+│   ├── 01-migration-overview.png
+│   ├── 02-azure-runtime-architecture.png
+│   └── 03-ecommerce-azure-architecture.png
 │
 ├── backend-api/                     # Source code
 │   ├── src/
