@@ -1,5 +1,13 @@
 # 🚀 eCommerce Azure DevOps Platform
 
+![Terraform](https://img.shields.io/badge/IaC-Terraform-623CE4?logo=terraform&logoColor=white)
+![Azure](https://img.shields.io/badge/Cloud-Microsoft%20Azure-0078D4?logo=microsoftazure&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-2088FF?logo=githubactions&logoColor=white)
+![Node.js](https://img.shields.io/badge/Backend-Node.js-339933?logo=nodedotjs&logoColor=white)
+![Angular](https://img.shields.io/badge/Frontend-Angular-DD0031?logo=angular&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-4169E1?logo=postgresql&logoColor=white)
+![Production Ready](https://img.shields.io/badge/Environment-Production-success)
+
 ## 📌 Project Summary
 
 This project demonstrates the migration of a production eCommerce application from a VPS (AlmaLinux + PostgreSQL) to Microsoft Azure PAAS architecture. 
@@ -104,7 +112,7 @@ ecommerce-azure-devops-platform/
 ├── architecture/
 │   └── ecommerce-azure-architecture.png
 │
-├── backend-api/
+├── backend-api/                     # Source code
 │   ├── src/
 │   ├── package.json
 │   ├── Dockerfile
@@ -116,7 +124,7 @@ ecommerce-azure-devops-platform/
 │   ├── Dockerfile
 │   └── README.md
 │
-├── frontend-client/
+├── frontend-client/                  # Built Angular dist
 │   ├── index.html
 │   ├── assets/
 │   ├── staticwebapp.config.json
@@ -128,7 +136,7 @@ ecommerce-azure-devops-platform/
 │   ├── staticwebapp.config.json
 │   └── README.md
 │
-├── terraform/
+├── terraform/                        # Infra as Code
 │   ├── modules/
 │   │   ├── resource-group/
 │   │   ├── service-plan/
@@ -193,6 +201,15 @@ Backend-admin
 
 Backend-api
 ![backend-api](screenshots/backend-api.png)
+
+Terraform Deploy
+![Terraform Deploy](https://github.com/josephmj0303/ecommerce-azure-devops-platform/actions/workflows/terraform.yml/badge.svg)
+
+Backend API Deploy
+![Backend API Deploy](https://github.com/josephmj0303/ecommerce-azure-devops-platform/actions/workflows/backend-api.yml/badge.svg)
+
+Frontend Deploy
+![Frontend Deploy](https://github.com/josephmj0303/ecommerce-azure-devops-platform/actions/workflows/frontend.yml/badge.svg)
 
 ---
 
