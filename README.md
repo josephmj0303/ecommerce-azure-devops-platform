@@ -176,7 +176,39 @@ ecommerce-azure-devops-platform/
 
 ```
 
-----
+---
+
+### 🗄 Database Migration Strategy
+
+The original PostgreSQL database was hosted on a VPS (AlmaLinux).
+As part of the cloud migration, the database was migrated to Azure using a secure dump-and-restore approach.
+
+Migration Process
+1. Generated backup from VPS-hosted PostgreSQL:
+```
+pg_dump -Fc -d EbookTest -f EbookTest.dump
+```
+2. Created Azure PostgreSQL Flexible Server instance.
+3. Restored database securely using SSL:
+```
+pg_restore \
+  -h <azure-server>.postgres.database.azure.com \
+  -U postgres \
+  -d EbookTest \
+  --no-owner \
+  --role=postgres \
+  EbookTest.dump
+```
+4. Hardened network access:
+- Removed VPS IP from firewall
+- Enabled Azure services only
+- Enforced SSL connections
+
+####  Security Note
+Database dump files are not stored in this repository.
+Backups and runtime data are managed outside version control to maintain security and integrity.
+
+---
 
 ### 🔐 Security Practices
 
