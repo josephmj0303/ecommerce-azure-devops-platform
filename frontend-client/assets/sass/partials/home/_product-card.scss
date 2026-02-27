@@ -1,0 +1,118 @@
+/* ============================= Product Card Css Start ========================== */
+.product-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    &:hover {
+        .product-card__thumb img {
+            transform: scale(1.2);
+        }
+    }
+    &__cart {   
+        @include xxl-screen {
+            font-size: 12px;
+            padding: 9px 12px !important;
+        }
+    }
+    &__badge {
+        border-radius: 16px 0 16px 0;
+    }
+    &__thumb {
+        height: 232px;
+        width: 100%;
+        transition: 0s !important;
+        img {
+            max-width: 160px;
+            width: 100%;
+            transition: .2s linear;
+        }
+    }
+
+    &.style-two {
+        flex-direction: row;
+        .product-card {
+            &__thumb {
+                width: 260px;
+                height: 190px;
+                @include md-screen {
+                    width: 190px;
+                }
+                @include msm-screen {
+                    width: 124px;
+                }
+            }
+        }
+    }
+}
+
+@include lg-screen {
+    .product-card {
+        &__thumb {
+            min-height: 160px;
+            img {
+                max-width: 120px;
+            }
+        }
+        &__content {
+            .product-card {
+                &__price span {
+                    font-size: rem(12px) !important;
+                }
+            }
+            .title .link {
+                font-size: rem(14px);
+            }
+            .text-xs {
+                font-size: rem(10px) !important;
+            }
+        }
+    }
+}
+
+
+.wishlist-btn-two {
+    width: 48px;
+    height: 48px;
+    border: 1px solid var(--neutral-200);
+    color: hsl(var(--heading-color));
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    transition: .15s linear;
+    position: absolute;
+    inset-inline-end: 16px;
+    inset-block-start: 16px;
+    transform: scale(.3);
+    z-index: 1;
+    visibility: hidden;
+    opacity: 0;
+    &:hover {
+        border-color: var(--main-600);
+        color: var(--main-600);
+    }
+    &.active {
+        visibility: visible;
+        opacity: 1;
+        transform: scale(1);
+        border-color: var(--main-600);
+        background-color: var(--main-600);
+        color: #fff;
+        &:hover {
+            background-color: var(--main-700);
+        }
+    }
+}
+
+.group-item {
+    &:hover {
+        .wishlist-btn-two {
+            transform: scale(1);
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+}
+/* ============================= Product Card Css End ========================== */

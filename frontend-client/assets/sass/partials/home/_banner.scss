@@ -1,0 +1,148 @@
+/* ============================== Banner Css Start ========================== */
+.banner {
+    margin-top: 32px;
+    @include sm-screen {
+        margin-bottom: 32px;
+    }
+    .slick-slider {
+        position: unset;
+    }
+    .slick-initialized.slick-slider .slick-slide {
+        margin: 0;
+    }
+}
+
+.banner-item {
+    position: relative;
+    padding-block-start: 80px;
+    padding-block-end: 140px;
+    padding-inline-start: clampCal(16, 142, 992, 1599);
+    padding-inline-end: clampCal(16, 76, 992, 1599);
+    -webkit-mask-image: url(../../../images/bg/banner-bg2.png);
+    mask-image: url(../../../images/bg/banner-bg2.png);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    background: #E9FFFF;
+    mask-position: top;
+    mask-size: 100% 100%;
+    gap: clampCal(24, 72);
+    @include sm-screen {
+        mask-image: none;
+        overflow: unset !important;
+    }
+    &__content {
+        max-width: 852px;
+        @include xxl-screen {
+            max-width: 750px;   
+        }
+    }
+    &__thumb {
+        img {
+            @include msm-screen {
+                max-width: 350px;
+                width: 100%;
+            }
+        }
+    }
+}
+
+.banner-slider__inner {
+    @include msm-screen {
+        flex-wrap: wrap;
+    }
+}
+
+.scroll-down {
+    width: 94px;
+    height: 94px;
+    position: relative;
+    margin-bottom: 24px;
+    z-index: 2;
+    @include xl-screen {
+        width: 74px;
+        height: 74px;
+        margin-bottom: 16px;
+    }
+    @include sm-screen {
+        margin-bottom: -36px;
+    }
+    &::before {
+        position: absolute;
+        content: "";
+        width: 2px;
+        height: 32px;
+        border: 2px dashed hsl(var(--white) / .4);
+        top: 16px;
+        animation: upDown 2s linear infinite;
+        @include xl-screen {
+            top: 8px;
+        }
+    }
+    .icon {
+        animation: upDown 2s linear infinite;
+        font-size: rem(28px);
+        margin-top: 16px;
+    }
+}
+
+@keyframes upDown {
+    0% {
+        transform: translateY(10px);
+    }
+    50% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(10px);
+    }
+}
+
+
+
+/* Slider Animation Css Start */
+.animate-left-right {
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transform: translateX(-20px);
+    transform: translateX(-20px);
+    transition: .4s linear;
+}
+
+.slick-current .animate-left-right {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+}
+
+.animate-scale {
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transform: scale(.9);
+    transform: scale(.9);
+    transition: .4s linear;
+}
+
+.slick-current .animate-scale {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+.animation-delay {
+    &-08 {
+        transition-delay: 800ms; 
+    }
+    &-1 {
+        transition-delay: 1000ms; 
+    }
+    &-12 {
+        transition-delay: 1200ms; 
+    }
+    &-15 {
+        transition-delay: 1500ms; 
+    }
+}
+/* Slider Animation Css End */
+/* ============================== Banner Css End ========================== */

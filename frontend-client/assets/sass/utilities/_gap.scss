@@ -1,0 +1,13 @@
+// Gap Css
+@each $property, $value in $spaces {
+    .gap-#{$property} {
+      gap: var(--size-#{$property}) !important;
+    }
+  }
+
+  .gap-20-px {
+    gap: 20px;
+    @media (max-width: 768px) {
+      gap: 10px;
+    }
+  }

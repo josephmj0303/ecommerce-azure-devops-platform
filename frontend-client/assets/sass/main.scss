@@ -1,0 +1,40 @@
+// abstract
+@import "abstracts/index";
+// Component
+@import "components/index";
+// utilities
+@import "utilities/index";
+// Module
+@import "layout/index";
+// All partials
+@import "partials/index";
+
+
+.select2-selection.select2-selection--single{
+    margin-top: 12px;
+    border: 0 !important;
+}
+.text-silde{
+    margin-top: 130px !important;
+}
+
+.text-slider {
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+  }
+  
+  .slider-track {
+    display: inline-flex;
+    animation: scrollMarquee 30s linear infinite;
+  }
+  
+  @keyframes scrollMarquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  

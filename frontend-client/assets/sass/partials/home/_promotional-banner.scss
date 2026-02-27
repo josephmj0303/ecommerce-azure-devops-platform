@@ -1,0 +1,9 @@
+/* ======================== promotional banner Css Start ============================== */
+.promotional-banner-item {
+    &__title {
+        @include xl-screen {
+            font-size: rem(24px) !important;
+        }
+    }
+}
+/* ======================== promotional banner Css End ============================== */
