@@ -121,18 +121,20 @@ ecommerce-azure-devops-platform/
 ├── backend-api/                     # Source code
 │   ├── src/
 │   ├── package.json
-│   ├── Dockerfile
+│   ├── package-lock.json
 │   └── README.md
 │
 ├── backend-admin/
 │   ├── src/
 │   ├── package.json
-│   ├── Dockerfile
+│   ├── package-lock.json
+│   ├── app.js
 │   └── README.md
 │
 ├── frontend-client/                  # Built Angular dist
 │   ├── index.html
 │   ├── assets/
+│   ├── media/
 │   ├── staticwebapp.config.json
 │   └── README.md
 │
@@ -170,7 +172,8 @@ ecommerce-azure-devops-platform/
 │       ├── terraform.yml
 │       ├── backend-api.yml
 │       ├── backend-admin.yml
-│       └── frontend.yml
+│       ├── frontend-client.yml
+│       └── frontend-admin.yml
 │
 ├── screenshots/
 │       ├── client-frontend.png
