@@ -1,0 +1,23 @@
+name: Deploy Backend API
+
+on:
+  push:
+    paths:
+      - backend-api/**
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Deploy
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: backend-api-joedevopslab
+          package: ./backend-api
