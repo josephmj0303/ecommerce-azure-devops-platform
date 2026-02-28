@@ -9,4 +9,3 @@ frontend_admin_name    = "fe-admin-joedevopslab"
 
 postgres_name          = "joedevopslab-pg"
 postgres_admin_user    = "postgres"
-postgres_admin_password = "REPLACE_IN_GITHUB_SECRET"

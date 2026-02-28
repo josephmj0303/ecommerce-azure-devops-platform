@@ -1,0 +1,51 @@
+name: Terraform
+
+on:
+  push:
+    branches:
+      - dev
+      - main
+
+jobs:
+
+  terraform-dev:
+    if: github.ref == 'refs/heads/dev'
+    runs-on: ubuntu-latest
+
+    env:
+      TF_VAR_postgres_admin_password: ${{ secrets.POSTGRES_ADMIN_PASSWORD }}
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: hashicorp/setup-terraform@v3
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - run: terraform init
+        working-directory: terraform/env/dev
+
+      - run: terraform apply -auto-approve
+        working-directory: terraform/env/dev
+
+
+  terraform-prod:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: production   # 👈 Approval gate enabled here
+
+    env:
+      TF_VAR_postgres_admin_password: ${{ secrets.POSTGRES_ADMIN_PASSWORD }}
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: hashicorp/setup-terraform@v3
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - run: terraform init
+        working-directory: terraform/env/prod
+
+      - run: terraform apply -auto-approve
+        working-directory: terraform/env/prod

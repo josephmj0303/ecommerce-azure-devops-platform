@@ -1,0 +1,23 @@
+name: Deploy Backend Admin
+
+on:
+  push:
+    paths:
+      - backend-admin/**
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Deploy
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: backend-admin-joedevopslab
+          package: ./backend-admin
