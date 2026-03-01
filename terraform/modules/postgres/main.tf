@@ -7,4 +7,7 @@ resource "azurerm_postgresql_flexible_server" "pg" {
   version                = "17"
   sku_name               = "B_Standard_B1ms"
   storage_mb             = 32768
+
+  public_network_access_enabled = true
+
 }
