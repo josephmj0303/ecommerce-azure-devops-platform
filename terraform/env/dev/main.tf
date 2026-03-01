@@ -16,7 +16,7 @@ module "backend_api" {
   name                = var.backend_api_name
   location            = var.location
   resource_group_name = module.rg.name
-  service_plan_id     = module.plan.plan_id
+  service_plan_id     = module.plan.id
 }
 
 module "backend_admin" {
@@ -24,7 +24,7 @@ module "backend_admin" {
   name                = var.backend_admin_name
   location            = var.location
   resource_group_name = module.rg.name
-  service_plan_id     = module.plan.plan_id
+  service_plan_id     = module.plan.id
 }
 
 module "frontend_client" {
