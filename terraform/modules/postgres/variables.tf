@@ -7,7 +7,7 @@ variable "admin_password" {
   sensitive = true
 }
 
-variable "version" {
+variable "postgres_version" {
   default = "17"
 }
 
