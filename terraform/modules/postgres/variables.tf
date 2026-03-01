@@ -8,7 +8,7 @@ variable "admin_password" {
 }
 
 variable "postgres_version" {
-  default = "17"
+  default = "16"
 }
 
 variable "sku_name" {
