@@ -3,6 +3,7 @@ terraform {
     resource_group_name  = "rg-joedevopslab-network"
     storage_account_name = "joedevopstfstate"
     container_name       = "tfstate"
-    key                  = "ecommerce-dev.terraform.tfstate"
+    key                  = "dev.terraform.tfstate"
   }
 }
+
