@@ -9,4 +9,14 @@ resource "azurerm_linux_web_app" "app" {
       node_version = "20-lts"
     }
   }
+
+  app_settings = {
+    NODE_ENV  = "production"
+    DB_HOST   = var.db_host
+    DB_PORT   = "5432"
+    DB_NAME   = var.db_name
+    DB_USER   = var.db_user
+    DB_PASSWORD = var.db_password
+    SCM_DO_BUILD_DURING_DEPLOYMENT = "true"
+  }
 }

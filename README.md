@@ -238,10 +238,10 @@ Admin-frontend
 ![admin-frontend](screenshots/admin-frontend.png)
 
 Backend-admin
-![backend-admin](screenshots/backend-admin.png)
+![backend-admin](screenshots/backend_admin.png)
 
 Backend-api
-![backend-api](screenshots/backend-api.png)
+![backend-api](screenshots/backend_api.png)
 
 Terraform Deploy
 ![Terraform Deploy](https://github.com/josephmj0303/ecommerce-azure-devops-platform/actions/workflows/terraform.yml/badge.svg)
