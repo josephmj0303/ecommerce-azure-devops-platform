@@ -17,6 +17,11 @@ module "backend_api" {
   location            = var.location
   resource_group_name = module.rg.name
   service_plan_id     = module.plan.id
+
+  db_host     = "${var.postgres_name}.postgres.database.azure.com"
+  db_name     = "EbookTest"
+  db_user     = var.postgres_admin_user
+  db_password = var.postgres_admin_password
 }
 
 module "backend_admin" {
@@ -25,6 +30,11 @@ module "backend_admin" {
   location            = var.location
   resource_group_name = module.rg.name
   service_plan_id     = module.plan.id
+
+  db_host     = "${var.postgres_name}.postgres.database.azure.com"
+  db_name     = "EbookTest"
+  db_user     = var.postgres_admin_user
+  db_password = var.postgres_admin_password
 }
 
 module "frontend_client" {
