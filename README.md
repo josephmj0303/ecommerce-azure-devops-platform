@@ -153,19 +153,19 @@ ecommerce-azure-devops-platform/
 │   │   ├── static-web-app/
 │   │   └── app-insights/
 │   │
-│   ├── env/
-│   │   ├── dev/
-│   │   │   ├── main.tf
-│   │   │   ├── variables.tf
-│   │   │   └── terraform.tfvars
-│   │   └── prod/
-│   │       ├── main.tf
-│   │       ├── variables.tf
-│   │       └── terraform.tfvars
-│   │
-│   ├── providers.tf
-│   ├── backend.tf
-│   └── variables.tf
+│   └── env/
+│       ├── dev/
+│       │   ├── main.tf
+│       │   ├── providers.tf
+│       │   ├── backend.tf
+│       │   ├── variables.tf
+│       │   └── terraform.tfvars
+│       └── prod/
+│           ├── main.tf
+│           ├── providers.tf
+│           ├── backend.tf
+│           ├── variables.tf
+│           └── terraform.tfvars
 │
 ├── .github/
 │   └── workflows/
