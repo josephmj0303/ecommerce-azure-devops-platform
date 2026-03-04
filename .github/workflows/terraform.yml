@@ -5,6 +5,8 @@ on:
     branches:
       - dev
       - main
+    paths:
+      - "terraform/**"
 
 jobs:
 
@@ -32,7 +34,7 @@ jobs:
   terraform-prod:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    environment: production   # 👈 Approval gate enabled here
+    environment: production  
 
     env:
       TF_VAR_postgres_admin_password: ${{ secrets.POSTGRES_ADMIN_PASSWORD }}
