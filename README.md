@@ -50,11 +50,11 @@ This project demonstrates the migration of a production eCommerce application fr
 
 ### 🏗 Final Production Architecture
 
-![Architecture](architecture/03-ecommerce-azure-architecture.png)
+![Architecture](docs/architecture/03-ecommerce-azure-architecture.png)
 
 ### ☁ Migration Overview
 
-![Migration](architecture/01-migration-overview.png)
+![Migration](docs/architecture/01-migration-overview.png)
 
 ---
 
@@ -224,16 +224,16 @@ Backups and runtime data are managed outside version control to maintain securit
 ### 🧪 Validation Endpoints
 
 Client-frontend
-![client-frontend](screenshots/client-frontend.png)
+![client-frontend](docs/screenshots/client-frontend.png)
 
 Admin-frontend
-![admin-frontend](screenshots/admin-frontend.png)
+![admin-frontend](docs/screenshots/admin-frontend.png)
 
 Backend-admin
-![backend-admin](screenshots/backend-admin.png)
+![backend-admin](docs/screenshots/backend-admin.png)
 
 Backend-api
-![backend-api](screenshots/backend-api.png)
+![backend-api](docs/screenshots/backend-api.png)
 
 Terraform Deploy
 ![Terraform Deploy](https://github.com/josephmj0303/ecommerce-azure-devops-platform/actions/workflows/terraform.yml/badge.svg)
