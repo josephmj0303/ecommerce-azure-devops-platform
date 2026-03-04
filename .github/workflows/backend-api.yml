@@ -2,6 +2,9 @@ name: Deploy Backend API
 
 on:
   push:
+    branches:
+      - dev
+      - main
     paths:
       - backend-api/**
 

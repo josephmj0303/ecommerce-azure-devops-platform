@@ -2,7 +2,9 @@ name: Deploy Frontend Client
 
 on:
   push:
-    branches: [ main ]
+    branches: 
+      - dev
+      - main 
     paths:
       - "frontend-client/**"
 
