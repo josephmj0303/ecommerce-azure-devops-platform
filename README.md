@@ -113,12 +113,19 @@ GitHub Actions handles deployments.
 ```
 ecommerce-azure-devops-platform/
 │
-├── architecture/
-│   ├── 01-migration-overview.png
-│   ├── 02-azure-runtime-architecture.png
-│   └── 03-ecommerce-azure-architecture.png
+├── docs/
+│   ├── architecture/
+│   │   ├── 01-migration-overview.png
+│   │   ├── 02-azure-runtime-architecture.png
+│   │   └── 03-ecommerce-azure-architecture.png
+│   │
+│   └── screenshots/
+│       ├── client-frontend.png
+│       ├── admin-frontend.png
+│       ├── backend-api.png
+│       └── backend-admin.png
 │
-├── backend-api/                     # Source code
+├── backend-api/                                  # Source code
 │   ├── src/
 │   ├── package.json
 │   ├── package-lock.json
@@ -131,7 +138,7 @@ ecommerce-azure-devops-platform/
 │   ├── app.js
 │   └── README.md
 │
-├── frontend-client/                  # Built Angular dist
+├── frontend-client/                              # Built Angular dist
 │   ├── index.html
 │   ├── assets/
 │   ├── media/
@@ -144,7 +151,7 @@ ecommerce-azure-devops-platform/
 │   ├── staticwebapp.config.json
 │   └── README.md
 │
-├── terraform/                        # Infra as Code
+├── terraform/
 │   ├── modules/
 │   │   ├── resource-group/
 │   │   ├── service-plan/
@@ -155,17 +162,7 @@ ecommerce-azure-devops-platform/
 │   │
 │   └── env/
 │       ├── dev/
-│       │   ├── main.tf
-│       │   ├── providers.tf
-│       │   ├── backend.tf
-│       │   ├── variables.tf
-│       │   └── terraform.tfvars
 │       └── prod/
-│           ├── main.tf
-│           ├── providers.tf
-│           ├── backend.tf
-│           ├── variables.tf
-│           └── terraform.tfvars
 │
 ├── .github/
 │   └── workflows/
@@ -175,12 +172,7 @@ ecommerce-azure-devops-platform/
 │       ├── frontend-client.yml
 │       └── frontend-admin.yml
 │
-├── screenshots/
-│       ├── client-frontend.png
-│       ├── admin-frontend.png
-│       ├── backend-api.png
-│       └── backend-admin.png
-│
+├── .gitignore
 └── README.md
 
 ```
@@ -238,10 +230,10 @@ Admin-frontend
 ![admin-frontend](screenshots/admin-frontend.png)
 
 Backend-admin
-![backend-admin](screenshots/backend_admin.png)
+![backend-admin](screenshots/backend-admin.png)
 
 Backend-api
-![backend-api](screenshots/backend_api.png)
+![backend-api](screenshots/backend-api.png)
 
 Terraform Deploy
 ![Terraform Deploy](https://github.com/josephmj0303/ecommerce-azure-devops-platform/actions/workflows/terraform.yml/badge.svg)
