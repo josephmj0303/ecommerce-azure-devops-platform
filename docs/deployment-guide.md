@@ -181,27 +181,7 @@ git push origin main
 
 ---
 
-## 10) Important repository observations (fix before production hardening)
-
-1. **`terraform/env/prod/main.tf` uses `module.plan.plan_id`**
-   - Current output in `modules/service-plan/outputs.tf` is `id`, not `plan_id`.
-   - Recommended fix: replace `module.plan.plan_id` with `module.plan.id`.
-
-2. **`terraform/env/prod/main.tf` does not instantiate the PostgreSQL module**
-   - If production database should be managed by Terraform, add `module "postgres"` as in `dev`.
-
-3. **`frontend-admin` workflow currently references `SWA_CLIENT_TOKEN`**
-   - Better practice is separate secrets per app.
-   - Recommended fix in `.github/workflows/frontend-admin.yml`:
-     - `azure_static_web_apps_api_token: ${{ secrets.SWA_ADMIN_TOKEN }}`
-
-4. **Frontend deploy action uses `output_location: "dist"` while repo appears to store built artifacts directly**
-   - Verify your intended deployment mode (source build vs prebuilt artifact).
-   - If this repo stores final built output at root of each frontend folder, set `output_location` appropriately (often empty string).
-
----
-
-## 11) Rollback strategy
+## 10) Rollback strategy
 
 - **Infrastructure rollback**: use `terraform plan` against previous commit and apply.
 - **Application rollback**: revert Git commit and push; workflows redeploy previous state.
@@ -209,7 +189,7 @@ git push origin main
 
 ---
 
-## 12) Quick command reference
+## 11) Quick command reference
 
 ```bash
 # Terraform dev
