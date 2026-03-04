@@ -92,6 +92,14 @@ PostgreSQL Flexible Server
 
 ---
 
+### 📘 Detailed Deployment Runbook
+
+For a full, step-by-step deployment procedure (prerequisites, secrets, branch flow, validation, rollback, and hardening notes), see:
+
+- [`docs/deployment-guide.md`](docs/deployment-guide.md)
+
+---
+
 ### 🚀 How to Deploy
 
 1️⃣ Provision Infrastructure
