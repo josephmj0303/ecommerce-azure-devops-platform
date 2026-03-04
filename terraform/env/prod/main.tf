@@ -16,7 +16,12 @@ module "backend_api" {
   name                = var.backend_api_name
   location            = var.location
   resource_group_name = module.rg.name
-  service_plan_id     = module.plan.plan_id
+  service_plan_id     = module.plan.id
+
+  db_host     = "${var.postgres_name}.postgres.database.azure.com"
+  db_name     = "EbookTest"
+  db_user     = var.postgres_admin_user
+  db_password = var.postgres_admin_password
 }
 
 module "backend_admin" {
@@ -24,7 +29,12 @@ module "backend_admin" {
   name                = var.backend_admin_name
   location            = var.location
   resource_group_name = module.rg.name
-  service_plan_id     = module.plan.plan_id
+  service_plan_id     = module.plan.id
+
+  db_host     = "${var.postgres_name}.postgres.database.azure.com"
+  db_name     = "EbookTest"
+  db_user     = var.postgres_admin_user
+  db_password = var.postgres_admin_password
 }
 
 module "frontend_client" {
@@ -39,4 +49,14 @@ module "frontend_admin" {
   name                = var.frontend_admin_name
   location            = var.location
   resource_group_name = module.rg.name
+}
+
+module "postgres" {
+  source              = "../../modules/postgres"
+  name                = var.postgres_name
+  location            = var.location
+  resource_group_name = module.rg.name
+
+  admin_user          = var.postgres_admin_user
+  admin_password      = var.postgres_admin_password
 }
