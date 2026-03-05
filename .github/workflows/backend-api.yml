@@ -13,19 +13,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Install Dependencies
+      - name: Install dependencies
         run: npm install
-	working-directory: backend-api
+        working-directory: backend-api
 
-      - uses: azure/login@v1
+      - name: Azure Login
+        uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: Deploy
+      - name: Deploy Backend API
         uses: azure/webapps-deploy@v2
         with:
           app-name: backend-api-joedevopslab
           package: ./backend-api
-
