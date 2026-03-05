@@ -127,6 +127,8 @@ ecommerce-azure-devops-platform/
 │   │   ├── 02-azure-runtime-architecture.png
 │   │   └── 03-ecommerce-azure-architecture.png
 │   │
+│   ├── deployment-guide.md
+│   │
 │   └── screenshots/
 │       ├── client-frontend.png
 │       ├── admin-frontend.png
@@ -136,28 +138,24 @@ ecommerce-azure-devops-platform/
 ├── backend-api/                                  # Source code
 │   ├── src/
 │   ├── package.json
-│   ├── package-lock.json
-│   └── README.md
+│   └── package-lock.json
 │
 ├── backend-admin/
 │   ├── src/
 │   ├── package.json
 │   ├── package-lock.json
-│   ├── app.js
-│   └── README.md
+│   └── app.js
 │
 ├── frontend-client/                              # Built Angular dist
 │   ├── index.html
 │   ├── assets/
 │   ├── media/
-│   ├── staticwebapp.config.json
-│   └── README.md
+│   └── staticwebapp.config.json
 │
 ├── frontend-admin/
 │   ├── index.html
 │   ├── assets/
-│   ├── staticwebapp.config.json
-│   └── README.md
+│   └── staticwebapp.config.json
 │
 ├── terraform/
 │   ├── modules/
