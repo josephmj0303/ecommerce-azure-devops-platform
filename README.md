@@ -243,14 +243,8 @@ Backend-admin
 Backend-api
 ![backend-api](docs/screenshots/backend-api.png)
 
-Terraform Deploy
-![Terraform Deploy](https://github.com/josephmj0303/ecommerce-azure-devops-platform/actions/workflows/terraform.yml/badge.svg)
-
-Backend API Deploy
-![Backend API Deploy](https://github.com/josephmj0303/ecommerce-azure-devops-platform/actions/workflows/backend-api.yml/badge.svg)
-
-Frontend Deploy
-![Frontend Deploy](https://github.com/josephmj0303/ecommerce-azure-devops-platform/actions/workflows/frontend.yml/badge.svg)
+Workflow Deployments
+![Workflow Deployments](docs/screenshots/workflow-deployments.png)
 
 ---
 
