@@ -135,27 +135,13 @@ ecommerce-azure-devops-platform/
 │       ├── backend-api.png
 │       └── backend-admin.png
 │
-├── backend-api/                                  # Source code
-│   ├── src/
-│   ├── package.json
-│   └── package-lock.json
+├── backend-api/                              # Application Source Code (Private)
 │
-├── backend-admin/
-│   ├── src/
-│   ├── package.json
-│   ├── package-lock.json
-│   └── app.js
+├── backend-admin/                            # Application Source Code (Private)
 │
-├── frontend-client/                              # Built Angular dist
-│   ├── index.html
-│   ├── assets/
-│   ├── media/
-│   └── staticwebapp.config.json
+├── frontend-client/                          # Application Source Code (Private)
 │
-├── frontend-admin/
-│   ├── index.html
-│   ├── assets/
-│   └── staticwebapp.config.json
+├── frontend-admin/                           # Application Source Code (Private)                           
 │
 ├── terraform/
 │   ├── modules/
@@ -243,6 +229,25 @@ Backend-api
 
 Workflow Deployments
 ![Workflow Deployments](docs/screenshots/workflow-deployments.png)
+
+---
+
+## 🔒 Source Code Notice
+
+This repository intentionally excludes application source code.
+
+Why?
+- To simulate real-world enterprise practices
+- To protect application-level intellectual property
+- To focus this project on DevOps engineering capabilities
+
+The repository still includes:
+- Full CI/CD pipelines
+- Infrastructure as Code (Terraform)
+- Microsoft Azure PAAS architecture
+- Architecture & Proof of Concept Documents
+
+📩 Source code can be shared upon request.
 
 ---
 
