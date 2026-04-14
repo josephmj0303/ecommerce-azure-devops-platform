@@ -216,16 +216,16 @@ Backups and runtime data are managed outside version control to maintain securit
 ### 🧪 Validation Endpoints
 
 Client-frontend
-![client-frontend](docs/screenshots/client-frontend.png)
+![client-frontend](docs/screenshots/client-fe.png)
 
 Admin-frontend
-![admin-frontend](docs/screenshots/admin-frontend.png)
+![admin-frontend](docs/screenshots/admin-fe.png)
 
 Backend-admin
-![backend-admin](docs/screenshots/backend-admin.png)
+![backend-admin](docs/screenshots/backend_admin.png)
 
 Backend-api
-![backend-api](docs/screenshots/backend-api.png)
+![backend-api](docs/screenshots/backend_api.png)
 
 Workflow Deployments
 ![Workflow Deployments](docs/screenshots/workflow-deployments.png)
