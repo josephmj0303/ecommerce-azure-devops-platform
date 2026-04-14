@@ -127,37 +127,21 @@ ecommerce-azure-devops-platform/
 │   │   ├── 02-azure-runtime-architecture.png
 │   │   └── 03-ecommerce-azure-architecture.png
 │   │
+│   ├── deployment-guide.md
+│   │
 │   └── screenshots/
 │       ├── client-frontend.png
 │       ├── admin-frontend.png
 │       ├── backend-api.png
 │       └── backend-admin.png
 │
-├── backend-api/                                  # Source code
-│   ├── src/
-│   ├── package.json
-│   ├── package-lock.json
-│   └── README.md
+├── backend-api/                              # Application Source Code (Private)
 │
-├── backend-admin/
-│   ├── src/
-│   ├── package.json
-│   ├── package-lock.json
-│   ├── app.js
-│   └── README.md
+├── backend-admin/                            # Application Source Code (Private)
 │
-├── frontend-client/                              # Built Angular dist
-│   ├── index.html
-│   ├── assets/
-│   ├── media/
-│   ├── staticwebapp.config.json
-│   └── README.md
+├── frontend-client/                          # Application Source Code (Private)
 │
-├── frontend-admin/
-│   ├── index.html
-│   ├── assets/
-│   ├── staticwebapp.config.json
-│   └── README.md
+├── frontend-admin/                           # Application Source Code (Private)                           
 │
 ├── terraform/
 │   ├── modules/
@@ -232,25 +216,38 @@ Backups and runtime data are managed outside version control to maintain securit
 ### 🧪 Validation Endpoints
 
 Client-frontend
-![client-frontend](docs/screenshots/client-frontend.png)
+![client-frontend](docs/screenshots/client-fe.png)
 
 Admin-frontend
-![admin-frontend](docs/screenshots/admin-frontend.png)
+![admin-frontend](docs/screenshots/admin-fe.png)
 
 Backend-admin
-![backend-admin](docs/screenshots/backend-admin.png)
+![backend-admin](docs/screenshots/backend_admin.png)
 
 Backend-api
-![backend-api](docs/screenshots/backend-api.png)
+![backend-api](docs/screenshots/backend_api.png)
 
-Terraform Deploy
-![Terraform Deploy](https://github.com/josephmj0303/ecommerce-azure-devops-platform/actions/workflows/terraform.yml/badge.svg)
+Workflow Deployments
+![Workflow Deployments](docs/screenshots/workflow-deployments.png)
 
-Backend API Deploy
-![Backend API Deploy](https://github.com/josephmj0303/ecommerce-azure-devops-platform/actions/workflows/backend-api.yml/badge.svg)
+---
 
-Frontend Deploy
-![Frontend Deploy](https://github.com/josephmj0303/ecommerce-azure-devops-platform/actions/workflows/frontend.yml/badge.svg)
+## 🔒 Source Code Notice
+
+This repository intentionally excludes application source code.
+
+Why?
+- To simulate real-world enterprise practices
+- To protect application-level intellectual property
+- To focus this project on DevOps engineering capabilities
+
+The repository still includes:
+- Full CI/CD pipelines
+- Infrastructure as Code (Terraform)
+- Microsoft Azure PAAS architecture
+- Architecture & Proof of Concept Documents
+
+📩 Source code can be shared upon request.
 
 ---
 

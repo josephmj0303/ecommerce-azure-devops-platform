@@ -59,4 +59,5 @@ module "postgres" {
 
   admin_user          = var.postgres_admin_user
   admin_password      = var.postgres_admin_password
+  zone 		      = var.zone
 }

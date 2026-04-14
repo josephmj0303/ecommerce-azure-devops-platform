@@ -20,3 +20,8 @@ variable "postgres_admin_user" {}
 variable "postgres_admin_password" {
   sensitive = true
 }
+variable "zone" {
+  description = "Availability zone for PostgreSQL"
+  type        = string
+  default     = "2"
+}

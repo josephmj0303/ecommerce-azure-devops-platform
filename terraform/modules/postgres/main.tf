@@ -9,6 +9,7 @@ resource "azurerm_postgresql_flexible_server" "pg" {
   version                = var.postgres_version
   sku_name               = var.sku_name
   storage_mb             = var.storage_mb
+  zone 			 = var.zone
 
   public_network_access_enabled = var.public_network_access_enabled
 }

@@ -1,0 +1,13 @@
+## Application Source Code (Private)
+
+The application source code has been moved to a private repository 
+to reflect real-world security practices.
+
+This project focuses on:
+
+- Infrastructure provisioning (Terraform)
+- CI/CD pipelines (GitHub Actions / Azure DevOps)
+- Microsoft Azure PAAS architecture
+- Architecture & Proof of Concept Documents
+
+If required, access can be provided upon request.

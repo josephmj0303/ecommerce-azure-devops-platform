@@ -22,3 +22,9 @@ variable "storage_mb" {
 variable "public_network_access_enabled" {
   default = true
 }
+
+variable "zone" {
+  description = "Availability zone for PostgreSQL"
+  type        = string
+  default     = "2"
+}
