@@ -1,4 +1,4 @@
-# Deployment Guide
+## Deployment Guide
 
 This guide explains how to deploy the `ecommerce-azure-devops-platform` repository to Azure using the existing Terraform and GitHub Actions setup in this repo.
 
