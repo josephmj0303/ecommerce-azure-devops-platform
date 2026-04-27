@@ -236,7 +236,6 @@ Workflow Deployments
 
 This repository intentionally excludes application source code.
 
-Why?
 - To simulate real-world enterprise practices
 - To protect application-level intellectual property
 - To focus this project on DevOps engineering capabilities
