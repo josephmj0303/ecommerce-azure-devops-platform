@@ -9,6 +9,9 @@ module "plan" {
   name                = var.app_service_plan_name
   location            = var.location
   resource_group_name = module.rg.name
+  depends_on = [
+    module.rg
+  ]
 }
 
 module "backend_api" {
@@ -22,6 +25,9 @@ module "backend_api" {
   db_name     = "EbookTest"
   db_user     = var.postgres_admin_user
   db_password = var.postgres_admin_password
+  depends_on = [
+    module.postgres
+  ]
 }
 
 module "backend_admin" {
@@ -35,6 +41,9 @@ module "backend_admin" {
   db_name     = "EbookTest"
   db_user     = var.postgres_admin_user
   db_password = var.postgres_admin_password
+  depends_on = [
+    module.postgres
+  ]
 }
 
 module "frontend_client" {
