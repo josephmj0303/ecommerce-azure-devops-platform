@@ -8,6 +8,10 @@ on:
     paths:
       - "terraform/**"
 
+concurrency:
+  group: terraform-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
 
   terraform-dev:
