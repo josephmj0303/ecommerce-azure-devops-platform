@@ -24,11 +24,23 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: hashicorp/setup-terraform@v3
+      - name: Validate Azure Credentials
+        run: |
+          if [ -z "${{ secrets.AZURE_CREDENTIALS }}" ]; then
+            echo "AZURE_CREDENTIALS is not set"
+            exit 1
+          fi
       - uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - run: terraform init
+        working-directory: terraform/env/dev
+
+      - run: terraform validate
+        working-directory: terraform/env/dev
+          
+      - run: terraform plan
         working-directory: terraform/env/dev
 
       - run: terraform apply -auto-approve
@@ -46,11 +58,23 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: hashicorp/setup-terraform@v3
+      - name: Validate Azure Credentials
+        run: |
+          if [ -z "${{ secrets.AZURE_CREDENTIALS }}" ]; then
+            echo "AZURE_CREDENTIALS is not set"
+            exit 1
+          fi
       - uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - run: terraform init
+        working-directory: terraform/env/prod
+
+      - run: terraform validate
+        working-directory: terraform/env/prod
+
+      - run: terraform plan
         working-directory: terraform/env/prod
 
       - run: terraform apply -auto-approve
